@@ -114,23 +114,39 @@ module Json  =
         |0 -> ""
         |_ -> constructorParams |> Array.map (fun c -> (toString c)) |> String.concat "; " |> sprintf "\t\t{%s} with\n" 
         
-    let layeredTypeName c =
+    let layeredTypeName name layer =
         let suffix = 
-            match c.layer with
+            match layer with
             | Some l -> sprintf "_%i" l
             | None -> ""
-        sprintf "%s%s" c.predicate suffix
+        sprintf "%s%s" name suffix
     
-    let toStringConstructor (c: ConstructorDefinition) = 
-        let typeDefinition = sprintf "\ttype %s = \n" (layeredTypeName c)
-        let paramDefinition = toString c.constructorParams
-        let constructorDefinition = sprintf "\t\tstatic member Constructor = %i\n" c.id
+  
+        
+    let toStringConstructor typeName constructorParams typeId layer = 
+        let genericOrSimpleType (name: string) = 
+            let genericTypeName (rawName: string) =  
+                let splitted = rawName.Split (' ')
+                sprintf "%s<'%s>" (splitted.[0]) (splitted.[1])
+            match name with
+            |n when n.Contains " " -> genericTypeName n
+            |_ -> name
+        
+        let genericOrSimpleName = genericOrSimpleType typeName
+        let typeDefinition = sprintf "\ttype %s = \n" (layeredTypeName genericOrSimpleName layer)
+        let paramDefinition = toString constructorParams
+        let constructorDefinition = sprintf "\t\tstatic member Constructor = %i\n" typeId
         let layerDefinition = 
-            match c.layer with  
+            match layer with  
             |Some l -> sprintf "\t\tstatic member Layer = %i\n" l
-            |None -> ""
-                    
+            |None -> ""                    
         typeDefinition + paramDefinition + constructorDefinition + layerDefinition
+        
+    let toStringUnionConstructor (c: ConstructorDefinition) = 
+        toStringConstructor c.predicate c.constructorParams c.id c.layer
+     
+    let toStringNonUnionConstructor (c: ConstructorDefinition) = 
+        toStringConstructor c.typeName c.constructorParams c.id c.layer 
         
     let toStringRecord (r: RecordDefinition) = 
         let firstCharToUpper (str:string) = 
@@ -139,17 +155,21 @@ module Json  =
             | "" -> ""
             | _ -> sprintf "%s%s"  ((str.Substring(0,1)).ToUpper()) (str.Substring(1, str.Length - 1))
         let unionElement (c:ConstructorDefinition) = 
-            let name = layeredTypeName c
+            let name = layeredTypeName c.predicate c.layer
             sprintf "|%s of %s " (firstCharToUpper name) name
             
         let unionString (unionName: string) (constructors : ConstructorDefinition[]) = 
             let elements = constructors |> Array.map unionElement |> String.concat "\n\t\t"
             sprintf "\ttype %s = \n\t\t%s\n" unionName elements
             
-        let constructors = r.children |> Seq.map toStringConstructor |> String.concat "\n"
-        let union = unionString r.typeName r.children
-        
-        sprintf "%s\n%s" constructors union
+        let constructorsAndUnion record =                  
+            let constructors = record.children |> Seq.map toStringUnionConstructor |> String.concat "\n"
+            let union = unionString r.typeName r.children        
+            sprintf "%s\n%s" constructors union
+            
+        match r.children.Length with
+        | 1 -> toStringNonUnionConstructor (r.children.[0])
+        | _ -> constructorsAndUnion r
         
     let toStringAll (records : RecordDefinition[]) = 
          let r = records |> Array.map toStringRecord |> String.concat "\n"

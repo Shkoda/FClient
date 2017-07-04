@@ -10,28 +10,18 @@ module GeneratedTypes =
         |BoolFalse of boolFalse 
         |BoolTrue of boolTrue 
 
-    type _true = 
+    type True = 
         static member Constructor = 1072550713
 
-    type True = 
-        |True of _true 
-
-    type Vector<'T> = 
+    type Vector<'t> = 
         static member Constructor = 481674261
 
-
-    type error = 
+    type Error = 
         {_code : int; _text : string} with
         static member Constructor = -994444869
 
-    type Error = 
-        |Error of error 
-
-    type _null = 
-        static member Constructor = 1450380236
-
     type Null = 
-        |Null of _null 
+        static member Constructor = 1450380236
 
     type inputPeerEmpty = 
         static member Constructor = 2134579434
@@ -78,12 +68,9 @@ module GeneratedTypes =
         |InputUserContact of inputUserContact 
         |InputUserForeign of inputUserForeign 
 
-    type inputPhoneContact = 
+    type InputContact = 
         {_client_id : int64; _phone : string; _first_name : string; _last_name : string} with
         static member Constructor = -208488460
-
-    type InputContact = 
-        |InputPhoneContact of inputPhoneContact 
 
     type inputFile = 
         {_id : int64; _parts : int; _name : string; _md5_checksum : string} with
@@ -168,12 +155,9 @@ module GeneratedTypes =
         |InputPhotoCropAuto of inputPhotoCropAuto 
         |InputPhotoCrop of inputPhotoCrop 
 
-    type inputAppEvent = 
+    type InputAppEvent = 
         {_time : double; _type : string; _peer : int64; _data : string} with
         static member Constructor = 1996904104
-
-    type InputAppEvent = 
-        |InputAppEvent of inputAppEvent 
 
     type peerUser = 
         {_user_id : int} with
@@ -281,12 +265,9 @@ module GeneratedTypes =
         |UserStatusLastWeek of userStatusLastWeek 
         |UserStatusLastMonth of userStatusLastMonth 
 
-    type chatParticipant = 
+    type ChatParticipant = 
         {_user_id : int; _inviter_id : int; _date : int} with
         static member Constructor = -925415106
-
-    type ChatParticipant = 
-        |ChatParticipant of chatParticipant 
 
     type geoPointEmpty = 
         static member Constructor = 286776671
@@ -299,12 +280,9 @@ module GeneratedTypes =
         |GeoPointEmpty of geoPointEmpty 
         |GeoPoint of geoPoint 
 
-    type auth_exportedAuthorization = 
+    type auth_ExportedAuthorization = 
         {_id : int; _bytes : byte[]} with
         static member Constructor = -543777747
-
-    type auth_ExportedAuthorization = 
-        |Auth_exportedAuthorization of auth_exportedAuthorization 
 
     type inputPeerNotifyEventsEmpty = 
         static member Constructor = -265263912
@@ -326,12 +304,9 @@ module GeneratedTypes =
         |PeerNotifyEventsEmpty of peerNotifyEventsEmpty 
         |PeerNotifyEventsAll of peerNotifyEventsAll 
 
-    type peerSettings = 
+    type PeerSettings = 
         {_flags : int; _report_spam : bool} with
         static member Constructor = -2122045747
-
-    type PeerSettings = 
-        |PeerSettings of peerSettings 
 
     type inputReportReasonSpam = 
         static member Constructor = 1490799288
@@ -352,26 +327,17 @@ module GeneratedTypes =
         |InputReportReasonPornography of inputReportReasonPornography 
         |InputReportReasonOther of inputReportReasonOther 
 
-    type importedContact = 
+    type ImportedContact = 
         {_user_id : int; _client_id : int64} with
         static member Constructor = -805141448
 
-    type ImportedContact = 
-        |ImportedContact of importedContact 
-
-    type contactBlocked = 
+    type ContactBlocked = 
         {_user_id : int; _date : int} with
         static member Constructor = 1444661369
 
-    type ContactBlocked = 
-        |ContactBlocked of contactBlocked 
-
-    type messages_affectedHistory = 
+    type messages_AffectedHistory = 
         {_pts : int; _seq : int; _offset : int} with
         static member Constructor = -1210173710
-
-    type messages_AffectedHistory = 
-        |Messages_affectedHistory of messages_affectedHistory 
 
     type inputMessagesFilterEmpty = 
         static member Constructor = 1474492012
@@ -415,33 +381,21 @@ module GeneratedTypes =
         |InputMessagesFilterUrl of inputMessagesFilterUrl 
         |InputMessagesFilterGif of inputMessagesFilterGif 
 
-    type updates_state = 
+    type updates_State = 
         {_pts : int; _qts : int; _date : int; _seq : int; _unread_count : int} with
         static member Constructor = -1519637954
 
-    type updates_State = 
-        |Updates_state of updates_state 
-
-    type dcOption = 
+    type DcOption = 
         {_id : int; _hostname : string; _ip_address : string; _port : int} with
         static member Constructor = 784507964
 
-    type DcOption = 
-        |DcOption of dcOption 
-
-    type nearestDc = 
+    type NearestDc = 
         {_country : string; _this_dc : int; _nearest_dc : int} with
         static member Constructor = -1910892683
 
-    type NearestDc = 
-        |NearestDc of nearestDc 
-
-    type help_inviteText = 
+    type help_InviteText = 
         {_message : string} with
         static member Constructor = 415997816
-
-    type help_InviteText = 
-        |Help_inviteText of help_inviteText 
 
     type encryptedChatEmpty = 
         {_id : int} with
@@ -470,12 +424,9 @@ module GeneratedTypes =
         |EncryptedChat of encryptedChat 
         |EncryptedChatDiscarded of encryptedChatDiscarded 
 
-    type inputEncryptedChat = 
+    type InputEncryptedChat = 
         {_chat_id : int; _access_hash : int64} with
         static member Constructor = -247351839
-
-    type InputEncryptedChat = 
-        |InputEncryptedChat of inputEncryptedChat 
 
     type encryptedFileEmpty = 
         static member Constructor = -1038136962
@@ -647,24 +598,15 @@ module GeneratedTypes =
         |SendMessageGeoLocationAction_17 of sendMessageGeoLocationAction_17 
         |SendMessageChooseContactAction_17 of sendMessageChooseContactAction_17 
 
-    type contactFound = 
+    type ContactFound = 
         {_user_id : int} with
         static member Constructor = -360210539
 
-    type ContactFound = 
-        |ContactFound of contactFound 
-
-    type inputPrivacyKeyStatusTimestamp = 
+    type InputPrivacyKey = 
         static member Constructor = 1335282456
 
-    type InputPrivacyKey = 
-        |InputPrivacyKeyStatusTimestamp of inputPrivacyKeyStatusTimestamp 
-
-    type privacyKeyStatusTimestamp = 
-        static member Constructor = -1137792208
-
     type PrivacyKey = 
-        |PrivacyKeyStatusTimestamp of privacyKeyStatusTimestamp 
+        static member Constructor = -1137792208
 
     type privacyValueAllowContacts = 
         static member Constructor = -123988
@@ -694,19 +636,13 @@ module GeneratedTypes =
         |PrivacyValueDisallowAll of privacyValueDisallowAll 
         |PrivacyValueDisallowUsers of privacyValueDisallowUsers 
 
-    type accountDaysTTL = 
+    type AccountDaysTTL = 
         {_days : int} with
         static member Constructor = -1194283041
 
-    type AccountDaysTTL = 
-        |AccountDaysTTL of accountDaysTTL 
-
-    type account_sentChangePhoneCode = 
+    type account_SentChangePhoneCode = 
         {_phone_code_hash : string; _send_call_timeout : int} with
         static member Constructor = -1527411636
-
-    type account_SentChangePhoneCode = 
-        |Account_sentChangePhoneCode of account_sentChangePhoneCode 
 
     type documentAttributeImageSize = 
         {_w : int; _h : int} with
@@ -772,19 +708,13 @@ module GeneratedTypes =
         |DocumentAttributeAudio_23 of documentAttributeAudio_23 
         |DocumentAttributeFilename_23 of documentAttributeFilename_23 
 
-    type stickerPack = 
+    type StickerPack = 
         {_emoticon : string; _documents : Vector<int64>} with
         static member Constructor = 313694676
 
-    type StickerPack = 
-        |StickerPack of stickerPack 
-
-    type disabledFeature = 
+    type DisabledFeature = 
         {_feature : string; _description : string} with
         static member Constructor = -1369215196
-
-    type DisabledFeature = 
-        |DisabledFeature of disabledFeature 
 
     type inputMediaEmpty = 
         static member Constructor = -1771768449
@@ -937,12 +867,9 @@ module GeneratedTypes =
         |PhotoSize_23 of photoSize_23 
         |PhotoCachedSize_23 of photoCachedSize_23 
 
-    type auth_checkedPhone = 
+    type auth_CheckedPhone = 
         {_phone_registered : Bool; _phone_invited : Bool} with
         static member Constructor = -486486981
-
-    type auth_CheckedPhone = 
-        |Auth_checkedPhone of auth_checkedPhone 
 
     type auth_sentCode = 
         {_phone_registered : Bool; _phone_code_hash : string; _send_call_timeout : int; _is_password : Bool} with
@@ -975,12 +902,9 @@ module GeneratedTypes =
         |InputNotifyChats of inputNotifyChats 
         |InputNotifyAll of inputNotifyAll 
 
-    type inputPeerNotifySettings = 
+    type InputPeerNotifySettings = 
         {_mute_until : int; _sound : string; _show_previews : Bool; _events_mask : int} with
         static member Constructor = 1185074840
-
-    type InputPeerNotifySettings = 
-        |InputPeerNotifySettings of inputPeerNotifySettings 
 
     type peerNotifySettingsEmpty = 
         static member Constructor = 1889961234
@@ -993,19 +917,13 @@ module GeneratedTypes =
         |PeerNotifySettingsEmpty of peerNotifySettingsEmpty 
         |PeerNotifySettings of peerNotifySettings 
 
-    type contact = 
+    type Contact = 
         {_user_id : int; _mutual : Bool} with
         static member Constructor = -116274796
 
-    type Contact = 
-        |Contact of contact 
-
-    type contactStatus = 
+    type ContactStatus = 
         {_user_id : int; _status : UserStatus} with
         static member Constructor = -748155807
-
-    type ContactStatus = 
-        |ContactStatus of contactStatus 
 
     type contacts_foreignLinkUnknown = 
         static member Constructor = 322183672
@@ -1037,19 +955,13 @@ module GeneratedTypes =
         |Contacts_myLinkRequested of contacts_myLinkRequested 
         |Contacts_myLinkContact of contacts_myLinkContact 
 
-    type upload_file = 
+    type upload_File = 
         {_type : storage_FileType; _mtime : int; _bytes : byte[]} with
         static member Constructor = 157948117
 
-    type upload_File = 
-        |Upload_file of upload_file 
-
-    type config = 
+    type Config = 
         {_date : int; _expires : int; _test_mode : Bool; _this_dc : int; _dc_options : Vector<DcOption>; _chat_big_size : int; _chat_size_max : int; _broadcast_size_max : int; _disabled_features : Vector<DisabledFeature>} with
         static member Constructor = 2108568544
-
-    type Config = 
-        |Config of config 
 
     type help_appUpdate = 
         {_id : int; _critical : Bool; _url : string; _text : string} with
@@ -1260,12 +1172,9 @@ module GeneratedTypes =
         |Chat of chat 
         |ChatForbidden of chatForbidden 
 
-    type dialog = 
+    type Dialog = 
         {_peer : Peer; _top_message : int; _unread_count : int; _notify_settings : PeerNotifySettings} with
         static member Constructor = -1422222932
-
-    type Dialog = 
-        |Dialog of dialog 
 
     type photoEmpty = 
         {_id : int64} with
@@ -1376,12 +1285,9 @@ module GeneratedTypes =
         |DecryptedMessageMediaAudio_17 of decryptedMessageMediaAudio_17 
         |DecryptedMessageMediaExternalDocument_23 of decryptedMessageMediaExternalDocument_23 
 
-    type chatFull = 
+    type ChatFull = 
         {_id : int; _participants : ChatParticipants; _chat_photo : Photo; _notify_settings : PeerNotifySettings} with
         static member Constructor = 1661886910
-
-    type ChatFull = 
-        |ChatFull of chatFull 
 
     type messageMediaEmpty = 
         static member Constructor = 1038967584
@@ -1454,19 +1360,13 @@ module GeneratedTypes =
         |MessageActionChatAddUser of messageActionChatAddUser 
         |MessageActionChatDeleteUser of messageActionChatDeleteUser 
 
-    type auth_authorization = 
+    type auth_Authorization = 
         {_expires : int; _user : User} with
         static member Constructor = -155815004
 
-    type auth_Authorization = 
-        |Auth_authorization of auth_authorization 
-
-    type contacts_link = 
+    type contacts_Link = 
         {_my_link : contacts_MyLink; _foreign_link : contacts_ForeignLink; _user : User} with
         static member Constructor = -322001931
-
-    type contacts_Link = 
-        |Contacts_link of contacts_link 
 
     type contacts_contactsNotModified = 
         static member Constructor = -1219778094
@@ -1479,12 +1379,9 @@ module GeneratedTypes =
         |Contacts_contactsNotModified of contacts_contactsNotModified 
         |Contacts_contacts of contacts_contacts 
 
-    type contacts_importedContacts = 
+    type contacts_ImportedContacts = 
         {_imported : Vector<ImportedContact>; _retry_contacts : Vector<int64>; _users : Vector<User>} with
         static member Constructor = -1387117803
-
-    type contacts_ImportedContacts = 
-        |Contacts_importedContacts of contacts_importedContacts 
 
     type contacts_blocked = 
         {_blocked : Vector<ContactBlocked>; _users : Vector<User>} with
@@ -1498,12 +1395,9 @@ module GeneratedTypes =
         |Contacts_blocked of contacts_blocked 
         |Contacts_blockedSlice of contacts_blockedSlice 
 
-    type messages_chats = 
+    type messages_Chats = 
         {_chats : Vector<Chat>; _users : Vector<User>} with
         static member Constructor = -2125411368
-
-    type messages_Chats = 
-        |Messages_chats of messages_chats 
 
     type photos_photos = 
         {_photos : Vector<Photo>; _users : Vector<User>} with
@@ -1517,33 +1411,21 @@ module GeneratedTypes =
         |Photos_photos of photos_photos 
         |Photos_photosSlice of photos_photosSlice 
 
-    type photos_photo = 
+    type photos_Photo = 
         {_photo : Photo; _users : Vector<User>} with
         static member Constructor = 539045032
 
-    type photos_Photo = 
-        |Photos_photo of photos_photo 
-
-    type help_support = 
+    type help_Support = 
         {_phone_number : string; _user : User} with
         static member Constructor = 398898678
 
-    type help_Support = 
-        |Help_support of help_support 
-
-    type contacts_found = 
+    type contacts_Found = 
         {_results : Vector<ContactFound>; _users : Vector<User>} with
         static member Constructor = 90570766
 
-    type contacts_Found = 
-        |Contacts_found of contacts_found 
-
-    type account_privacyRules = 
+    type account_PrivacyRules = 
         {_rules : Vector<PrivacyRule>; _users : Vector<User>} with
         static member Constructor = 1430961007
-
-    type account_PrivacyRules = 
-        |Account_privacyRules of account_privacyRules 
 
     type messages_stickersNotModified = 
         static member Constructor = -244016606
@@ -1615,12 +1497,9 @@ module GeneratedTypes =
         |MessageForwarded of messageForwarded 
         |MessageService of messageService 
 
-    type userFull = 
+    type UserFull = 
         {_user : User; _link : contacts_Link; _profile_photo : Photo; _notify_settings : PeerNotifySettings; _blocked : Bool; _real_first_name : string; _real_last_name : string} with
         static member Constructor = 1997575642
-
-    type UserFull = 
-        |UserFull of userFull 
 
     type messages_sentMessage = 
         {_id : int; _date : int; _pts : int; _seq : int} with
@@ -1634,20 +1513,14 @@ module GeneratedTypes =
         |Messages_sentMessage of messages_sentMessage 
         |Messages_sentMessageLink of messages_sentMessageLink 
 
-    type messages_chatFull = 
+    type messages_ChatFull = 
         {_full_chat : ChatFull; _chats : Vector<Chat>; _users : Vector<User>} with
         static member Constructor = -438840932
 
-    type messages_ChatFull = 
-        |Messages_chatFull of messages_chatFull 
-
-    type decryptedMessageLayer_17 = 
+    type DecryptedMessageLayer_17 = 
         {_random_bytes : byte[]; _layer : int; _in_seq_no : int; _out_seq_no : int; _message : DecryptedMessage} with
         static member Constructor = 467867529
         static member Layer = 17
-
-    type DecryptedMessageLayer = 
-        |DecryptedMessageLayer_17 of decryptedMessageLayer_17 
 
     type messages_dialogs = 
         {_dialogs : Vector<Dialog>; _messages : Vector<Message>; _chats : Vector<Chat>; _users : Vector<User>} with
