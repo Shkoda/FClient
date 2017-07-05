@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="GeneratedConstructors.fs" />
+    <Compile Include="DataTypes\GeneratedConstructors.fs" />
     <Compile Include="Json.fs" />
     <Compile Include="Main.fs" />
     <None Include="App.config" />
